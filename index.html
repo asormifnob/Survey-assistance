@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#2457c5"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="styles.css"><title>Survey Assistant</title></head>
+<body><header><div class="logo">SA</div><div><h1>Survey Assistant</h1><p>Your survey answers in one place</p></div></header><main>
+<div class="notice"><b>Private by default</b><p>Your answers stay in this browser on this phone. This helper cannot read other tabs or submit surveys.</p></div>
+<nav><button class="tab active" data-tab="profile">My answers</button><button class="tab" data-tab="helper">Question helper</button></nav>
+<section id="profile" class="panel active"><h2>Personal answer profile</h2><p class="muted">Enter only information you are comfortable saving.</p><form id="profileForm">
+<label>Age<input name="age" inputmode="numeric" placeholder="Your age"></label>
+<label>State<input name="state" placeholder="e.g. Florida"></label>
+<label>Employment status<input name="employment" placeholder="Your answer"></label>
+<label>Household size<input name="householdSize" inputmode="numeric" placeholder="Number of people"></label>
+<label>Housing status<input name="housing" placeholder="Rent, own, live with family…"></label>
+<label>Children living at home<input name="childrenAtHome" placeholder="Your answer"></label>
+<label>Education<input name="education" placeholder="Your answer"></label>
+<label>Other reusable answer<textarea name="other" rows="3" placeholder="Add another answer"></textarea></label>
+<button class="primary">Save my answers</button><button type="button" class="secondary" id="clear">Clear saved profile</button><p id="status" role="status"></p></form></section>
+<section id="helper" class="panel"><h2>Question helper</h2><p class="muted">Paste a survey question below to look for a matching saved answer.</p><label>Survey question<textarea id="question" rows="4" placeholder="Paste a question here…"></textarea></label><button class="primary" id="find">Find my saved answer</button><div id="match" class="match" aria-live="polite">Your suggested answer will appear here.</div><button class="secondary" id="copy" disabled>Copy suggested answer</button><p class="small">Check every suggestion. Answer screening and eligibility questions honestly.</p></section>
+<p class="small foot">This companion app does not automatically inspect other Chrome tabs, bypass CAPTCHA, or submit forms.</p></main>
+<script src="app.js"></script><script>if('serviceWorker' in navigator && location.protocol.startsWith('http')) addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script></body></html>
